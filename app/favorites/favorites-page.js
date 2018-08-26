@@ -5,11 +5,17 @@ const favoritesPage = {
 
     <ul>
     
-        <li ng-repeat="newItem in $ctrl.newItem" newItem = "newItem">{{newItem}}<button ng-click="$ctrl.delete(index)">X</button></li>
+        <li class="favReturn" ng-repeat="newItem in $ctrl.newItem" newItem = "newItem"><p>{{newItem.label}}<p/>
+        <img src="{{newItem.image}}">
+        <p>Serves:{{newItem.yield}}</p>
+        <a href="{{newItem.url}}"target="_blank">Learn more</a>
+        <button class="btnsInSearch" ng-click="$ctrl.delete(index)">X</button></li>
     </ul>
-        <button ng-click="$ctrl.backToSearch()">Search</button>
-
+    
     </section>
+    <div class ="back">
+    <button  ng-click="$ctrl.backToSearch()">Search</button>
+    </div>
     
     `,
     controller: ["SearchService", "$location", function (SearchService, $location){
